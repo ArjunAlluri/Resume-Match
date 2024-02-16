@@ -5,7 +5,6 @@ function App() {
   const [resumeFile, setResumeFile] = useState(null);
   const [jobDescription, setJobDescription] = useState('');
   const [message, setMessage] = useState('');
-
   const handleFileChange = (e) => {
     setResumeFile(e.target.files[0]);
   };
