@@ -84,6 +84,7 @@ def preprocess():
         'message': 'Skills extracted successfully',
         'skills_from_resume': skills_mentioned,
         'skills_from_description': skills_in_description,
+        'common_skills': list(set(skills_mentioned) & set(skills_in_description))
     })
 
 

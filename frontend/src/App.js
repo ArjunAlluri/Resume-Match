@@ -5,6 +5,8 @@ function App() {
   const [resumeFile, setResumeFile] = useState(null);
   const [jobDescription, setJobDescription] = useState('');
   const [message, setMessage] = useState('');
+  const [commonSkills, setCommonSkills] = useState([]);
+  
   const handleFileChange = (e) => {
     setResumeFile(e.target.files[0]);
   };
@@ -29,6 +31,8 @@ function App() {
       });
 
       setMessage(response.data.message);
+      setCommonSkills(response.data.common_skills); // New line to set common skills
+      
     } catch (error) {
       console.error('Error:', error);
     }
@@ -43,6 +47,16 @@ function App() {
         <button type="submit">Evaluate</button>
       </form>
       {message && <p>{message}</p>}
+      {commonSkills.length > 0 && (
+        <div>
+          <h2>Common Skills</h2>
+          <ul>
+            {commonSkills.map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
